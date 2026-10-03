@@ -2,7 +2,6 @@ import { ArrowLink, Footer, Header, Reveal } from "@/components/site"
 import { HeroFullscreen } from "@/components/HeroFullscreen"
 import { WhatWeDoSection } from "@/components/WhatWeDoSection"
 import { ProjectBannerSlider } from "@/components/ProjectBannerSlider"
-import { PlantScopePlanner } from "@/components/PlantScopePlanner"
 
 const industries = [
   {

@@ -1,130 +1,140 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export interface BannerSlide {
   id: string
-  client: string
-  title: string
-  division: string
-  location: string
-  sector: string
-  scope: string
-  image: string
-  specs?: string[]
-  href: string
+  src: string
+  alt: string
 }
 
 export const bannerSlides: BannerSlide[] = [
   {
-    id: "everest",
-    client: "Everest Food Products Pvt. Ltd.",
-    title: "Phase 1 & 2 Spice Processing Plant",
-    division: "Turnkey Process & MEP Infrastructure",
-    location: "Umbergaon & Mumbai, Gujarat / Maharashtra",
-    sector: "Food & Beverage",
-    scope: "End-to-end process and MEP design across two major expansion phases.",
-    image: "/images/hero-plant.jpg",
-    href: "/projects",
+    id: "hero-plant",
+    src: "/images/hero-plant.jpg",
+    alt: "AAVA Industrial Plant Engineering & Commissioning",
   },
   {
-    id: "ashapura",
-    client: "Ashapura Garments Ltd.",
-    title: "Denim & Trouser Integrated Facility",
-    division: "Automated Apparel & Wet Processing Plant",
-    location: "India",
-    sector: "Garment & Textile",
-    scope: "Turnkey layout and MEP delivery covering high-speed apparel production.",
-    image: "/images/textile-plant.jpg",
-    href: "/projects",
+    id: "textile-plant",
+    src: "/images/textile-plant.jpg",
+    alt: "AAVA Textile & Garment Manufacturing Facility",
   },
   {
-    id: "llabdhi",
-    client: "Llabdhi Metals & Suraasa Fabrication",
-    title: "Heavy Structural & Metal Fabrication Facility",
-    division: "High-Bay Structural & Power Distribution",
-    location: "Patalganga & Taloja, Maharashtra",
-    sector: "Steel & Heavy Industry",
-    scope: "High-bay PEB structural engineering and heavy electrical infrastructure.",
-    image: "/images/steel-plant.jpg",
-    href: "/projects",
+    id: "steel-plant",
+    src: "/images/steel-plant.jpg",
+    alt: "AAVA Steel & Heavy Fabrication Plant Engineering",
   },
   {
-    id: "organic-india",
-    client: "Organic India (TATA Group)",
-    title: "Multi-Phase Herbal & Agro-Processing Plant",
-    division: "Hygienic MEP & Civil Plant Expansion",
-    location: "Rath & Barabanki, Uttar Pradesh",
-    sector: "Food & Beverage / Agro",
-    scope: "Multi-phase plant development including hygienic process infrastructure.",
-    image: "/images/spices-processing.jpg",
-    href: "/projects",
+    id: "spices-processing",
+    src: "/images/spices-processing.jpg",
+    alt: "AAVA Food & Beverage Processing Plant",
   },
   {
-    id: "packaging",
-    client: "Kunal Packaging & Aakash Beverages",
-    title: "High-Speed Bottling & Packaging Complex",
-    division: "Automated Lines & Central Utility Infrastructure",
-    location: "Umbergaon & Bhiwandi, Maharashtra / Gujarat",
-    sector: "Packaging & Beverages",
-    scope: "Turnkey project delivery for high-speed automated bottling and packaging.",
-    image: "/images/packaging-plant.jpg",
-    href: "/projects",
+    id: "packaging-plant",
+    src: "/images/packaging-plant.jpg",
+    alt: "AAVA High-Speed Bottling & Automated Packaging Complex",
   },
 ]
 
-const SLIDE_DURATION = 5500
+const SLIDE_DURATION = 5000
 
 export function ProjectBannerSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
-    if (bannerSlides.length <= 1) return
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % bannerSlides.length)
-    }, SLIDE_DURATION)
-
-    return () => clearInterval(timer)
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % bannerSlides.length)
   }, [])
 
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + bannerSlides.length) % bannerSlides.length)
+  }, [])
+
+  useEffect(() => {
+    if (isHovered) {
+      if (timerRef.current) clearInterval(timerRef.current)
+      return
+    }
+
+    timerRef.current = setInterval(() => {
+      nextSlide()
+    }, SLIDE_DURATION)
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
+  }, [nextSlide, isHovered])
+
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black text-white">
-      {bannerSlides.map((slide, index) => {
-        const isActive = index === currentIndex
+    <section className="banner-slider-section full-width-banner" aria-label="Visual Project Showcase">
+      <div
+        className="banner-slider-card banner-clean-image-slider"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Full Image Layers - Pure Visuals, No Gradient, No Text */}
+        <div className="banner-slider-media">
+          {bannerSlides.map((slide, index) => {
+            const isActive = index === currentIndex
+            return (
+              <div
+                key={slide.id}
+                className={`banner-slide-layer ${isActive ? "active" : ""}`}
+                aria-hidden={!isActive}
+              >
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  fill
+                  priority={index === 0}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1160px"
+                  className="banner-image"
+                />
+              </div>
+            )
+          })}
+        </div>
 
-        return (
-          <div
-            key={slide.id}
-            aria-hidden={!isActive}
-            className={`absolute inset-0 transition-opacity duration-[1400ms] ease-in-out ${
-              isActive
-                ? "z-10 opacity-100"
-                : "pointer-events-none z-0 opacity-0"
-            }`}
-          >
-            {/* Background Image with Ken-Burns scale effect */}
-            <div
-              key={isActive ? `${slide.id}-active` : `${slide.id}-idle`}
-              className={`absolute inset-0 h-full w-full transition-transform duration-[5500ms] ease-out ${
-                isActive ? "scale-105 md:scale-108" : "scale-100"
-              }`}
-            >
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                priority={index === 0}
-                sizes="100vw"
-                className="object-cover object-center"
+        {/* Minimal Navigation Arrows */}
+        <button
+          type="button"
+          className="banner-nav-arrow banner-nav-prev"
+          onClick={prevSlide}
+          aria-label="Previous image slide"
+        >
+          <ChevronLeft size={22} strokeWidth={2} />
+        </button>
+
+        <button
+          type="button"
+          className="banner-nav-arrow banner-nav-next"
+          onClick={nextSlide}
+          aria-label="Next image slide"
+        >
+          <ChevronRight size={22} strokeWidth={2} />
+        </button>
+
+        {/* Minimal Navigation Dots */}
+        <div className="banner-dots-cluster" role="tablist" aria-label="Slide indicators">
+          {bannerSlides.map((slide, idx) => {
+            const isActive = idx === currentIndex
+            return (
+              <button
+                key={slide.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Slide ${idx + 1}`}
+                className={`banner-dot-indicator ${isActive ? "active" : ""}`}
+                onClick={() => setCurrentIndex(idx)}
               />
-            </div>
-          </div>
-        )
-      })}
-
+            )
+          })}
+        </div>
+      </div>
     </section>
   )
 }

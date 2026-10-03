@@ -15,12 +15,12 @@ export function ContactForm() {
       }}
     >
       {sent ? (
-        <div className="grid gap-3 border border-[#b85d34]/30 bg-[#b85d34]/[0.06] p-6 text-[#242d35]">
-          <span className="text-2xl text-[#b85d34]">✓</span>
+        <div className="grid gap-3 border border-[var(--line)] bg-[var(--surface)] p-6 text-[var(--body-text)] shadow-[0_4px_20px_rgba(28,25,23,0.06)] rounded-lg">
+          <span className="text-2xl text-[var(--terracotta)]">✓</span>
 
-          <h3 className="font-[var(--font-display)] text-xl font-semibold text-[#141a1e]">Thank you for reaching out.</h3>
+          <h3 className="font-[var(--font-display)] text-xl font-semibold text-[var(--ink)]">Thank you for reaching out.</h3>
 
-          <p>
+          <p className="text-[var(--muted-text)]">
             Our engineering team will review your requirements
             and be in touch shortly.
           </p>
@@ -28,69 +28,69 @@ export function ContactForm() {
       ) : (
         <>
           <div className="grid gap-5 sm:grid-cols-2">
-            <label className="grid gap-2 text-[13px] font-semibold text-[#141a1e]">
+            <label className="grid gap-2 text-[13px] font-semibold text-[var(--ink)]">
               Name
 
               <input
-                className="border border-[#e2dbd0] bg-white px-3 py-3 text-[14px] font-normal outline-none transition-colors placeholder:text-[#48545f]/70 focus:border-[#b85d34]"
+                className="rounded-md border border-[var(--line)] bg-[var(--surface)] px-3.5 py-3 text-[14px] font-normal text-[var(--ink)] outline-none transition-all placeholder:text-[var(--muted-text)]/70 focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta-soft)] shadow-sm"
                 required
                 placeholder="Your full name"
               />
             </label>
 
-            <label className="grid gap-2 text-[13px] font-semibold text-[#141a1e]">
+            <label className="grid gap-2 text-[13px] font-semibold text-[var(--ink)]">
               Company
 
               <input
-                className="border border-[#e2dbd0] bg-white px-3 py-3 text-[14px] font-normal outline-none transition-colors placeholder:text-[#48545f]/70 focus:border-[#b85d34]"
+                className="rounded-md border border-[var(--line)] bg-[var(--surface)] px-3.5 py-3 text-[14px] font-normal text-[var(--ink)] outline-none transition-all placeholder:text-[var(--muted-text)]/70 focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta-soft)] shadow-sm"
                 placeholder="Company or plant name"
               />
             </label>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2">
-            <label className="grid gap-2 text-[13px] font-semibold text-[#141a1e]">
+            <label className="grid gap-2 text-[13px] font-semibold text-[var(--ink)]">
               Email
 
               <input
-                className="border border-[#e2dbd0] bg-white px-3 py-3 text-[14px] font-normal outline-none transition-colors placeholder:text-[#48545f]/70 focus:border-[#b85d34]"
+                className="rounded-md border border-[var(--line)] bg-[var(--surface)] px-3.5 py-3 text-[14px] font-normal text-[var(--ink)] outline-none transition-all placeholder:text-[var(--muted-text)]/70 focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta-soft)] shadow-sm"
                 required
                 type="email"
                 placeholder="you@company.com"
               />
             </label>
 
-            <label className="grid gap-2 text-[13px] font-semibold text-[#141a1e]">
+            <label className="grid gap-2 text-[13px] font-semibold text-[var(--ink)]">
               Phone
 
               <input
-                className="border border-[#e2dbd0] bg-white px-3 py-3 text-[14px] font-normal outline-none transition-colors placeholder:text-[#48545f]/70 focus:border-[#b85d34]"
+                className="rounded-md border border-[var(--line)] bg-[var(--surface)] px-3.5 py-3 text-[14px] font-normal text-[var(--ink)] outline-none transition-all placeholder:text-[var(--muted-text)]/70 focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta-soft)] shadow-sm"
                 placeholder="+91 98765 43210"
               />
             </label>
           </div>
 
-          <label className="grid gap-2 text-[13px] font-semibold text-[#141a1e]">
+          <label className="grid gap-2 text-[13px] font-semibold text-[var(--ink)]">
             Sector
 
-            <select className="border border-[#e2dbd0] bg-white px-3 py-3 text-[14px] font-normal outline-none transition-colors focus:border-[#b85d34]" defaultValue="">
-              <option value="" disabled>
+            <select className="rounded-md border border-[var(--line)] bg-[var(--surface)] px-3.5 py-3 text-[14px] font-normal text-[var(--ink)] outline-none transition-all focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta-soft)] shadow-sm" defaultValue="">
+              <option value="" disabled className="bg-white text-[var(--muted-text)]">
                 Select your industry sector
               </option>
 
-              <option>Food &amp; Beverage</option>
-              <option>Garment &amp; Textile</option>
-              <option>Steel &amp; Heavy Industry</option>
-              <option>Packaging / Warehousing</option>
-              <option>Other Manufacturing</option>
+              <option className="bg-white text-[var(--ink)]">Food &amp; Beverage</option>
+              <option className="bg-white text-[var(--ink)]">Garment &amp; Textile</option>
+              <option className="bg-white text-[var(--ink)]">Steel &amp; Heavy Industry</option>
+              <option className="bg-white text-[var(--ink)]">Packaging / Warehousing</option>
+              <option className="bg-white text-[var(--ink)]">Other Manufacturing</option>
             </select>
           </label>
 
-          <label className="grid gap-2 text-[13px] font-semibold text-[#141a1e]">
+          <label className="grid gap-2 text-[13px] font-semibold text-[var(--ink)]">
             Project brief
 
             <textarea
-              className="border border-[#e2dbd0] bg-white px-3 py-3 text-[14px] font-normal outline-none transition-colors placeholder:text-[#48545f]/70 focus:border-[#b85d34]"
+              className="rounded-md border border-[var(--line)] bg-[var(--surface)] px-3.5 py-3 text-[14px] font-normal text-[var(--ink)] outline-none transition-all placeholder:text-[var(--muted-text)]/70 focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta-soft)] shadow-sm"
               required
               rows={5}
               placeholder="Tell us about your plant, capacity, timeline, or engineering challenge..."
@@ -98,11 +98,11 @@ export function ContactForm() {
           </label>
 
           <button
-            className="inline-flex w-fit items-center gap-2 bg-[#141a1e] px-5 py-3 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+            className="button contact-submit-btn"
             type="submit"
           >
             <span>Send enquiry</span>
-            <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+            <ArrowUpRight size={15} strokeWidth={2.5} aria-hidden="true" />
           </button>
         </>
       )}

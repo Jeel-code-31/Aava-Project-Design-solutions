@@ -110,7 +110,7 @@ export function PrinciplesThread() {
           className="thread-spine-active"
           style={{
             height: `${Math.min(Math.max(scrollProgress * 100, 0), 100)}%`,
-            filter: `brightness(${threadBrightness}) drop-shadow(0 0 ${threadGlowSize}px rgba(255, 107, 44, ${threadGlowOpacity}))`,
+            filter: `brightness(${threadBrightness}) drop-shadow(0 0 ${threadGlowSize}px rgba(201, 166, 107, ${threadGlowOpacity}))`,
           }}
           aria-hidden="true"
         >
@@ -132,9 +132,8 @@ export function PrinciplesThread() {
             return (
               <div
                 key={item.num}
-                className={`thread-row ${isLeft ? "row-left" : "row-right"} ${
-                  isActivated ? "is-activated" : "is-standby"
-                }`}
+                className={`thread-row ${isLeft ? "row-left" : "row-right"} ${isActivated ? "is-activated" : "is-standby"
+                  }`}
               >
                 {/* Milestone Node on the thread */}
                 <div
@@ -150,17 +149,15 @@ export function PrinciplesThread() {
 
                 {/* Horizontal branch line connecting thread to card */}
                 <div
-                  className={`thread-branch-wire ${
-                    isActivated ? "branch-active" : ""
-                  }`}
+                  className={`thread-branch-wire ${isActivated ? "branch-active" : ""
+                    }`}
                   aria-hidden="true"
                 />
 
                 {/* Redesigned Architectural Card */}
                 <article
-                  className={`principle-thread-card ${
-                    isActivated ? "card-revealed" : "card-dimmed"
-                  }`}
+                  className={`principle-thread-card ${isActivated ? "card-revealed" : "card-dimmed"
+                    }`}
                 >
                   {/* Precision Corner Crosshair Accents */}
                   <span className="cad-corner top-left" aria-hidden="true" />

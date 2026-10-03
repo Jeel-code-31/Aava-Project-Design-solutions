@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata, Viewport } from "next"
 import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google"
-import { Preloader } from "@/components/Preloader"
+import { BackToTop } from "@/components/layout/BackToTop"
 import "./globals.css"
 
 const body = DM_Sans({
@@ -30,8 +30,11 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
   colorScheme: "light",
-  themeColor: "#FAF7F2",
+  themeColor: "#4A171D",
 }
 
 export default function RootLayout({
@@ -42,8 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background" data-scroll-behavior="smooth">
       <body className={`${body.variable} ${display.variable} antialiased`}>
-        <Preloader />
         {children}
+        <BackToTop />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>

@@ -14,26 +14,50 @@ export function Header() {
       setScrolled(window.scrollY > 15)
     }
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false)
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth > 900) setOpen(false)
+    }
+
     handleScroll()
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    })
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("resize", handleResize)
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   return (
     <>
       <ScrollProgress />
 
-      <div className={`sticky top-0 z-50 w-full border-b backdrop-blur-[14px] transition-all duration-300 ${scrolled ? "border-[#e2dbd0] bg-[#faf7f2]/95 shadow-[0_4px_24px_-4px_rgba(20,26,30,0.06)]" : "border-[#e2dbd0]/60 bg-[#faf7f2]/80"}`}>
-        <header className="mx-auto flex min-h-[84px] w-[min(1160px,calc(100%-48px))] items-center justify-between transition-[min-height] duration-300 md:min-h-[72px]">
-          <Link className="group flex items-center gap-3 text-[14px] font-bold tracking-[0.12em] text-[#141a1e] transition-transform duration-200 hover:-translate-y-px" href="/">
-            <span className="grid size-9 place-items-center rounded-[5px] border-[1.5px] border-[#141a1e] bg-white font-[var(--font-display)] text-xl font-semibold tracking-normal shadow-[0_2px_6px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:rotate-[-3deg] group-hover:scale-105 group-hover:border-[#b85d34] group-hover:text-[#b85d34] group-hover:shadow-[0_4px_14px_rgba(184,93,52,0.22)]">A</span>
+      <div
+        className={`site-header-wrapper sticky top-0 z-50 w-full border-b backdrop-blur-[16px] transition-all duration-300 ${
+          scrolled
+            ? "border-[#806044] bg-[#4A171D]/95 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.4)]"
+            : "border-[#806044]/60 bg-[#4A171D]/85"
+        }`}
+      >
+        <header className="site-header mx-auto flex min-h-[84px] w-[min(1160px,calc(100%-48px))] items-center justify-between transition-[min-height] duration-300 relative max-md:min-h-[72px] max-sm:w-[calc(100%-32px)]">
+          <Link
+            className="brand group flex items-center gap-2.5 sm:gap-3 text-[14px] font-bold tracking-[0.12em] text-[#FFF4E6] transition-transform duration-200 hover:-translate-y-px"
+            href="/"
+            onClick={() => setOpen(false)}
+          >
+            <span className="brand-mark grid size-9 place-items-center rounded-[5px] border-[1.5px] border-[#806044] bg-[#3D1217] font-[var(--font-display)] text-xl font-semibold tracking-normal text-[#C9A66B] shadow-[0_2px_8px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:border-[#C9A66B] group-hover:text-[#FFF4E6] group-hover:shadow-[0_4px_14px_rgba(201,166,107,0.35)] shrink-0">
+              A
+            </span>
 
-            <span>
-              AAVA <small>PROJECT & DESIGN SOLUTIONS</small>
+            <span className="leading-tight">
+              AAVA <small className="hidden xs:inline-block text-[#D8C5B5] tracking-widest text-[8px] sm:text-[9px] font-semibold uppercase ml-1">PROJECT &amp; DESIGN SOLUTIONS</small>
             </span>
           </Link>
 
@@ -42,9 +66,19 @@ export function Header() {
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
             aria-expanded={open}
+            type="button"
           >
-            {open ? "Close" : "Menu"}
+            <span>{open ? "Close ✕" : "Menu ☰"}</span>
           </button>
+
+          {/* Mobile backdrop overlay */}
+          {open && (
+            <div
+              className="nav-mobile-backdrop"
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+            />
+          )}
 
           <nav className={open ? "nav open" : "nav"}>
             {[
@@ -57,7 +91,7 @@ export function Header() {
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="relative px-0 py-1.5 text-[13.5px] font-medium text-[#48545f] transition-colors hover:text-[#141a1e]"
+                className="nav-link relative px-0 py-1.5 text-[13.5px] font-medium text-[#D8C5B5] transition-colors hover:text-[#FFF4E6]"
               >
                 {label}
               </Link>

@@ -11,7 +11,7 @@ export function Footer() {
             style={{
               fontWeight: 600,
               fontSize: "16px",
-              color: "var(--ink)",
+              color: "#FFF4E6",
             }}
           >
             Engineering plants.
@@ -23,6 +23,7 @@ export function Footer() {
             style={{
               marginTop: "14px",
               fontSize: "13.5px",
+              color: "#D8C5B5",
             }}
           >
             End-to-end EPCM consultancy for Food, Garment &amp; Steel
