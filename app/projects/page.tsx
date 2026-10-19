@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Footer, Header, PageIntro, ProjectGrid, Reveal } from "@/components/site"
 import { Activity, CheckCircle2, Factory, ShieldCheck, Sparkles } from "lucide-react"
 
@@ -52,7 +53,7 @@ export default function Projects() {
 
         <ProjectGrid />
 
-        {/* ================= CURRENTLY IN PROGRESS SECTION ================= */}
+        {/* ================= CURRENTLY IN PROGRESS SECTION WITH ON-SITE ERECTION PHOTO ================= */}
         <Reveal>
           <div className="wrap">
             <section className="progress-card" aria-label="Currently in progress">
@@ -94,6 +95,26 @@ export default function Projects() {
                       <span>Turnkey Delivery</span>
                     </div>
                   </div>
+
+                  {/* Active Construction & Commissioning Photo */}
+                  <div className="relative mt-6 aspect-[16/10] w-full max-w-[480px] overflow-hidden rounded-[var(--radius-md)] border border-[var(--line)] shadow-md">
+                    <Image
+                      src="/images/projects-live-progress.jpg"
+                      alt="Active Turnkey Industrial Plant Erection and MEP Commissioning"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 480px"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(20,18,16,0.7)] via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 text-white">
+                      <span className="rounded bg-[var(--terracotta)] px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase">
+                        Active Site Supervision
+                      </span>
+                      <p className="mt-1 text-xs text-stone-200">
+                        Multi-disciplinary on-site commissioning and contractor coordination
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Active Client Showcase Cards */}
@@ -114,27 +135,50 @@ export default function Projects() {
           </div>
         </Reveal>
 
-        {/* ================= CLIENT FEEDBACK TESTIMONIAL ================= */}
+        {/* ================= CLIENT FEEDBACK TESTIMONIAL WITH EVEREST UMBERGAON FACTORY PHOTO ================= */}
         <Reveal>
           <section className="quote wrap" aria-label="Client Feedback">
-            <span
-              className="eyebrow"
-              style={{ display: "block", marginBottom: "16px" }}
-            >
-              Client Feedback
-            </span>
-            <blockquote>
-              “We all stand to acknowledge your blind commitment and dedication.”
-            </blockquote>
-            <cite>
-              — Sanjeev Shah, Everest Food Products Pvt. Ltd.
-            </cite>
-            <p className="quote-context">
-              Written on the occasion of the formal inauguration of Everest’s new
-              spice factory at Umbergaon, reflecting on a two-year project
-              delivered from concept through to a state-of-the-art facility
-              completed with precision and speed.
-            </p>
+            <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
+              <div>
+                <span
+                  className="eyebrow"
+                  style={{ display: "block", marginBottom: "16px" }}
+                >
+                  Client Feedback
+                </span>
+                <blockquote>
+                  “We all stand to acknowledge your blind commitment and dedication.”
+                </blockquote>
+                <cite>
+                  — Sanjeev Shah, Everest Food Products Pvt. Ltd.
+                </cite>
+                <p className="quote-context">
+                  Written on the occasion of the formal inauguration of Everest’s new
+                  spice factory at Umbergaon, reflecting on a two-year project
+                  delivered from concept through to a state-of-the-art facility
+                  completed with precision and speed.
+                </p>
+              </div>
+
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[var(--radius-md)] border border-[var(--line)] shadow-lg">
+                <Image
+                  src="/images/projects-everest-inauguration.jpg"
+                  alt="Everest Food Products Umbergaon Spice Complex Formal Inauguration"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 480px"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(20,18,16,0.7)] via-transparent to-transparent opacity-60" />
+                <div className="absolute bottom-3 left-3 right-3 text-white">
+                  <span className="rounded bg-[var(--terracotta)] px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase">
+                    Umbergaon Spice Complex
+                  </span>
+                  <p className="mt-1 text-xs text-stone-200">
+                    Turnkey execution delivered on schedule from concept to commercial commissioning
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
         </Reveal>
       </main>

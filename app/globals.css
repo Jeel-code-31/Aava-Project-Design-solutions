@@ -50,47 +50,72 @@
   /* ==========================================================================
      LIGHT ARCHITECTURAL CANVAS WITH MULTI-TONAL ACCENTS
      ========================================================================== */
-  --background: #F8F6F1;         /* Main body canvas: Sophisticated Alabaster Linen */
-  --foreground: #1E1A18;         /* Primary Headings: Deep Obsidian Espresso */
-  --ink: #1E1A18;                /* Headings: Deep Obsidian Espresso */
-  --ink-soft: #2D2723;           /* Warm Charcoal */
-  --body-text: #48413B;          /* Main Content: Rich Espresso Charcoal (AAA contrast) */
-  --muted-text: #726A62;         /* Secondary Text: Soft Umber Slate */
-  --subtle-text: #968D84;        /* Metadata & Captions: Warm Stone */
-  
+  --background: #F8F6F1;
+  /* Main body canvas: Sophisticated Alabaster Linen */
+  --foreground: #1E1A18;
+  /* Primary Headings: Deep Obsidian Espresso */
+  --ink: #1E1A18;
+  /* Headings: Deep Obsidian Espresso */
+  --ink-soft: #2D2723;
+  /* Warm Charcoal */
+  --body-text: #48413B;
+  /* Main Content: Rich Espresso Charcoal (AAA contrast) */
+  --muted-text: #726A62;
+  /* Secondary Text: Soft Umber Slate */
+  --subtle-text: #968D84;
+  /* Metadata & Captions: Warm Stone */
+
   /* Primary Signature Accent: Heritage Wine Maroon (matches Dark Maroon Header & Footer) */
-  --accent: #8B2635;             /* Primary Accent: Heritage Wine Maroon */
-  --terracotta: #8B2635;         /* Primary Accent: Heritage Wine Maroon */
-  --terracotta-hover: #A13243;   /* Brighter Wine Maroon hover */
-  --terracotta-soft: rgba(139, 38, 53, 0.08); /* Soft Wine tint for tags & badges */
-  --terracotta-glow: rgba(139, 38, 53, 0.18); /* Architectural Wine hover glow */
+  --accent: #8B2635;
+  /* Primary Accent: Heritage Wine Maroon */
+  --terracotta: #8B2635;
+  /* Primary Accent: Heritage Wine Maroon */
+  --terracotta-hover: #A13243;
+  /* Brighter Wine Maroon hover */
+  --terracotta-soft: rgba(139, 38, 53, 0.08);
+  /* Soft Wine tint for tags & badges */
+  --terracotta-glow: rgba(139, 38, 53, 0.18);
+  /* Architectural Wine hover glow */
 
   /* Secondary Architectural Accents */
-  --gold: #B8860B;               /* Muted Architectural Gold */
-  --gold-hover: #CF9812;         /* Brighter Gold hover */
+  --gold: #B8860B;
+  /* Muted Architectural Gold */
+  --gold-hover: #CF9812;
+  /* Brighter Gold hover */
   --gold-soft: rgba(184, 134, 11, 0.12);
   --gold-glow: rgba(184, 134, 11, 0.25);
 
   /* Multi-discipline / Sector Palette Extensions */
-  --color-food: #266946;         /* Organic Forest Green for Food & Beverage */
+  --color-food: #266946;
+  /* Organic Forest Green for Food & Beverage */
   --color-food-soft: rgba(38, 105, 70, 0.09);
-  --color-textile: #225188;      /* Indigo Denim for Garment & Textile */
+  --color-textile: #225188;
+  /* Indigo Denim for Garment & Textile */
   --color-textile-soft: rgba(34, 81, 136, 0.09);
-  --color-steel: #8C4E26;        /* Industrial Bronze for Steel & Heavy Industry */
+  --color-steel: #8C4E26;
+  /* Industrial Bronze for Steel & Heavy Industry */
   --color-steel-soft: rgba(140, 78, 38, 0.09);
-  --color-mep: #1B6974;          /* Technical Slate Teal for MEP & Utilities */
+  --color-mep: #1B6974;
+  /* Technical Slate Teal for MEP & Utilities */
   --color-mep-soft: rgba(27, 105, 116, 0.09);
 
   /* Structural Framework & Borders */
-  --border: #DFD7CC;             /* Primary Structural Border */
-  --line: #DFD7CC;               /* Card & Section Divider */
-  --line-strong: #C4B9AA;        /* Highlight Border */
-  
+  --border: #DFD7CC;
+  /* Primary Structural Border */
+  --line: #DFD7CC;
+  /* Card & Section Divider */
+  --line-strong: #C4B9AA;
+  /* Highlight Border */
+
   /* Elevated Multi-tier Surfaces */
-  --surface: #FFFFFF;            /* Pure Crisp White card surface */
-  --surface-warm: #EFE9E0;       /* Alternating Section Canvas (Warm Sand/Oat) */
-  --surface-subtle: #F5EFEB;     /* Subtle warm stone highlight */
-  --surface-muted: #E6DED3;      /* Recessed container surface */
+  --surface: #FFFFFF;
+  /* Pure Crisp White card surface */
+  --surface-warm: #EFE9E0;
+  /* Alternating Section Canvas (Warm Sand/Oat) */
+  --surface-subtle: #F5EFEB;
+  /* Subtle warm stone highlight */
+  --surface-muted: #E6DED3;
+  /* Recessed container surface */
   --paper: #FFFFFF;
   --olive: #5B6858;
   --radius-sm: 5px;
@@ -407,7 +432,7 @@ button {
   pointer-events: none;
 }
 
-.nav-cta > * {
+.nav-cta>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease, transform 0.25s ease;
@@ -468,7 +493,7 @@ button {
   pointer-events: none;
 }
 
-.menu-button > * {
+.menu-button>* {
   position: relative;
   z-index: 2;
 }
@@ -727,7 +752,7 @@ h2 em,
   pointer-events: none;
 }
 
-.facility-cad-btn > * {
+.facility-cad-btn>* {
   position: relative;
   z-index: 2;
 }
@@ -1145,7 +1170,7 @@ h2 em,
   pointer-events: none;
 }
 
-.dock-btn > * {
+.dock-btn>* {
   position: relative;
   z-index: 2;
 }
@@ -1219,9 +1244,9 @@ h2 em,
   pointer-events: none;
 }
 
-.button > *,
-.btn > *,
-.contact-submit-btn > * {
+.button>*,
+.btn>*,
+.contact-submit-btn>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease, transform 0.25s ease;
@@ -1275,9 +1300,9 @@ h2 em,
   transform: translateX(0);
 }
 
-.button:hover > *,
-.btn:hover > *,
-.contact-submit-btn:hover > * {
+.button:hover>*,
+.btn:hover>*,
+.contact-submit-btn:hover>* {
   color: #FFFFFF !important;
 }
 
@@ -1786,7 +1811,7 @@ h2 em,
   pointer-events: none;
 }
 
-.what-action-btn > * {
+.what-action-btn>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease, transform 0.25s ease;
@@ -1802,7 +1827,7 @@ h2 em,
   transform: translateX(0);
 }
 
-.what-action-btn:hover > * {
+.what-action-btn:hover>* {
   color: #FFFFFF !important;
 }
 
@@ -2126,7 +2151,7 @@ h2 em,
   pointer-events: none;
 }
 
-.what-cta-primary > * {
+.what-cta-primary>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease, transform 0.25s ease;
@@ -2142,7 +2167,7 @@ h2 em,
   transform: translateX(0);
 }
 
-.what-cta-primary:hover > * {
+.what-cta-primary:hover>* {
   color: #FFFFFF !important;
 }
 
@@ -3290,7 +3315,7 @@ h2 em,
   pointer-events: none;
 }
 
-.sector-explore-btn > * {
+.sector-explore-btn>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease, transform 0.25s ease;
@@ -3306,7 +3331,7 @@ h2 em,
   transform: translateX(0);
 }
 
-.sector-explore-btn:hover > * {
+.sector-explore-btn:hover>* {
   color: #FFFFFF !important;
 }
 
@@ -3557,7 +3582,7 @@ h2 em,
   pointer-events: none;
 }
 
-.filters button > * {
+.filters button>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease, background 0.3s ease;
@@ -3575,8 +3600,8 @@ h2 em,
   transform: translateX(0);
 }
 
-.filters button:hover > *,
-.filters button.active > * {
+.filters button:hover>*,
+.filters button.active>* {
   color: #FFFFFF !important;
 }
 
@@ -4257,6 +4282,7 @@ h2 em,
     opacity: 0;
     transform: translateY(-12px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -4277,6 +4303,7 @@ h2 em,
    TABLET & MOBILE BREAKPOINT: <= 900px
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
+
   /* Header & Mobile Navigation */
   .site-header {
     min-height: 72px;
@@ -4411,7 +4438,7 @@ h2 em,
   }
 
   /* Two Column Section Layouts */
-  .sector-band > .wrap,
+  .sector-band>.wrap,
   .what,
   .featured,
   .credentials,
@@ -5684,7 +5711,7 @@ h2 em,
   pointer-events: none;
 }
 
-.planner-btn-primary > * {
+.planner-btn-primary>* {
   position: relative;
   z-index: 2;
   transition: color 0.35s ease;
@@ -5700,7 +5727,7 @@ h2 em,
   transform: translateX(0);
 }
 
-.planner-btn-primary:hover > * {
+.planner-btn-primary:hover>* {
   color: #FFFFFF !important;
 }
 
@@ -5816,6 +5843,7 @@ h2 em,
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

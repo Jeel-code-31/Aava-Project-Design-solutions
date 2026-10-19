@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 export interface PrincipleItem {
   num: string
@@ -97,6 +98,21 @@ export function PrinciplesThread() {
           <p>
             Our Working Principles.
           </p>
+        </div>
+
+        {/* Precision Blueprint & CAD Model Visual Showcase */}
+        <div className="relative mt-5 aspect-[21/9] w-full max-w-[560px] overflow-hidden rounded-[var(--radius-md)] border border-[var(--line)] shadow-sm">
+          <Image
+            src="/images/principles-precision.jpg"
+            alt="AAVA Precision Engineering, Blueprint Drafting & 3D BIM Model"
+            fill
+            sizes="(max-width: 768px) 100vw, 560px"
+            className="object-cover transition-transform duration-700 hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(20,18,16,0.7)] via-transparent to-transparent opacity-60" />
+          <span className="absolute bottom-2.5 left-3 rounded bg-[var(--terracotta)] px-2.5 py-0.5 text-[10.5px] font-bold tracking-wider text-white uppercase">
+            Precision Over Speed // Zero Site Clashes
+          </span>
         </div>
       </div>
 

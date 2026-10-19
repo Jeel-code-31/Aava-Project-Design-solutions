@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Image from "next/image"
 import { ArrowUpRight, Building2, MapPin, Search, X } from "lucide-react"
 import { projects } from "./projects-data"
 
@@ -151,6 +152,22 @@ export function ProjectGrid() {
             <article className="project-card" key={p.name}>
               {/* Card Header with Badges and Live Status */}
               <div>
+                {p.image && (
+                  <div className="relative mb-4 aspect-[16/10] w-full overflow-hidden rounded-[var(--radius-sm)] border border-[var(--line)] bg-[var(--surface-muted)]">
+                    <Image
+                      src={p.image}
+                      alt={`${p.name} industrial facility`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 360px"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(20,18,16,0.6)] via-transparent to-transparent opacity-60" />
+                    <span className="absolute bottom-2 left-2 rounded bg-[var(--terracotta)] px-2 py-0.5 text-[10px] font-bold tracking-wider text-white uppercase">
+                      {p.sector}
+                    </span>
+                  </div>
+                )}
+
                 <div className="project-card-header">
                   <div className="project-card-badges">
                     <span className="project-card-num">

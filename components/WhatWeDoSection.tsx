@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
 import { ArrowLink } from "@/components/site"
 
@@ -13,6 +14,7 @@ interface DisciplineItem {
   headline: string
   deliverables: string[]
   sectors: string
+  image: string
   icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement
 }
 
@@ -22,6 +24,7 @@ const disciplines: DisciplineItem[] = [
     number: "01",
     title: "Process & Plant Design",
     shortCategory: "Process Flow",
+    image: "/images/process-engineering.jpg",
     headline:
       "Hygienic equipment layout, mass balances, and regulatory process flow designed before a single wall is raised.",
     deliverables: [
@@ -42,7 +45,7 @@ const disciplines: DisciplineItem[] = [
         {...props}
       >
         <circle cx="12" cy="12" r="3" />
-        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
       </svg>
     ),
   },
@@ -51,6 +54,7 @@ const disciplines: DisciplineItem[] = [
     number: "02",
     title: "Electrical & Power Systems",
     shortCategory: "HT / LT Power",
+    image: "/images/electrical-substation.jpg",
     headline:
       "High-reliability power distribution engineered for zero downtime, balanced harmonics, and peak energy efficiency.",
     deliverables: [
@@ -79,6 +83,7 @@ const disciplines: DisciplineItem[] = [
     number: "03",
     title: "Mechanical & Process MEP",
     shortCategory: "Clean Utilities",
+    image: "/images/mep-utilities.jpg",
     headline:
       "Integrated steam, piping, compressed air, and specialized ventilation designed to eliminate on-site spatial clashes.",
     deliverables: [
@@ -114,6 +119,7 @@ const disciplines: DisciplineItem[] = [
     number: "04",
     title: "Civil & Structural Design",
     shortCategory: "Structures & PEB",
+    image: "/images/civil-structural.jpg",
     headline:
       "High-load industrial foundations and PEB structural framing built specifically around heavy machinery specs.",
     deliverables: [
@@ -146,6 +152,7 @@ const disciplines: DisciplineItem[] = [
     number: "05",
     title: "Plant Architecture & Masterplanning",
     shortCategory: "Flow & Zoning",
+    image: "/images/plant-architecture.jpg",
     headline:
       "Strategic layout planning that streamlines raw material arrival, process routing, dispatch logistics, and expansion.",
     deliverables: [
@@ -179,6 +186,7 @@ const disciplines: DisciplineItem[] = [
     number: "06",
     title: "Turnkey EPCM & Execution",
     shortCategory: "Single Accountability",
+    image: "/images/bim-clash-coordination.jpg",
     headline:
       "End-to-end procurement advisory, vendor techno-commercial vetting, on-site supervision, and commissioning handoff.",
     deliverables: [
@@ -342,6 +350,21 @@ export function WhatWeDoSection() {
                 onMouseEnter={() => setActiveDiscipline(item.id)}
                 onMouseLeave={() => setActiveDiscipline(null)}
               >
+                {/* Discipline Engineering Image Preview */}
+                <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-[var(--radius-sm)] border border-[var(--line)] bg-[var(--surface-muted)]">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} discipline scope`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(20,18,16,0.65)] via-transparent to-transparent opacity-60" />
+                  <span className="absolute bottom-2.5 left-2.5 rounded bg-[var(--terracotta)] px-2 py-0.5 text-[10.5px] font-bold tracking-wider text-white uppercase">
+                    {item.shortCategory}
+                  </span>
+                </div>
+
                 <div className="what-card-header">
                   <div className="what-card-badges">
                     <span className="what-card-num">{item.number}</span>

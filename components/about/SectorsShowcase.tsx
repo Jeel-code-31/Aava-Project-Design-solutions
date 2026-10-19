@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Factory, Shirt, UtensilsCrossed, PackageOpen, ArrowUpRight, House } from "lucide-react"
 
 interface SectorData {
@@ -15,6 +16,7 @@ interface SectorData {
   deliverables: string[]
   standards: string[]
   featuredPlant: string
+  image: string
 }
 
 const sectors: SectorData[] = [
@@ -26,12 +28,13 @@ const sectors: SectorData[] = [
     description:
       "Engineered from raw material intake to sterile packaging. We specialize in gravity-assisted process flows, automated autodosing recipe systems, and hygienic utility design.",
     icon: UtensilsCrossed,
+    image: "/images/food-beverage-industry.jpg",
     stats: { label: "Standard", value: "FSSAI / FDA" },
     deliverables: [
-      "Milk & Milk Products, Indian Seets & savouries",
+      "Milk & Milk Products, Indian Sweets & savouries",
       "RTS beverages (Frozen & retort & Aseptic)",
       "RTC instant Mixes & pastes, pickles & chutneys",
-      "Spices & sesoning, food ingredients(Sugar & tea), beverages(Fruits & CSDs) ",
+      "Spices & seasoning, food ingredients (Sugar & tea), beverages",
     ],
     standards: ["FSSAI Certified", "GMP Hygiene Zoning", "CIP/SIP Automation"],
     featuredPlant: "Ready-to-eat snacks, dairy processing, spices & confectionery",
@@ -44,10 +47,11 @@ const sectors: SectorData[] = [
     description:
       "Integrated textile mill planning combining cutting units, automated overhead material handling, high-capacity steam distribution, and zero-liquid-discharge (ZLD) plants.",
     icon: Shirt,
+    image: "/images/garment-textile-industry.jpg",
     stats: { label: "Efficiency", value: "Smart Conveying" },
     deliverables: [
       "Men's Wear & ladies Wear",
-      "furnishing, denims wet & dry producessing",
+      "furnishing, denims wet & dry processing",
     ],
     standards: ["Zero Liquid Discharge", "Steam Heat Recovery", "Smart Conveyor Lines"],
     featuredPlant: "Export denim manufacturing, wet washing units & garment finishing",
@@ -60,6 +64,7 @@ const sectors: SectorData[] = [
     description:
       "Heavy industrial facilities designed around crane bay capacities, furnace fume extraction, high-voltage substations, and robust structural steel framing.",
     icon: Factory,
+    image: "/images/steel-heavy-industry.jpg",
     stats: { label: "Payload", value: "Heavy Crane Bays" },
     deliverables: [
       "Process Flow",
@@ -77,15 +82,16 @@ const sectors: SectorData[] = [
     description:
       "Turnkey logistics architecture focused on maximum volumetric storage, rapid truck docking turnaround, FM Global fire compliance, and modular phase-wise expansion.",
     icon: PackageOpen,
+    image: "/images/sector-packaging-facility.jpg",
     stats: { label: "Logistics", value: "Modular ASRS" },
     deliverables: [
-      "Placstics",
-      "Laminates",
+      "Plastics & Packaging Lines",
+      "Laminates & Films",
       "Industrial Gases",
-      "Paper",
+      "Paper & Carton Packaging",
     ],
     standards: ["FM Global / NFPA", "Superflat Concrete", "Dock Optimization"],
-    featuredPlant: "Cold storage hubs, corrugated carton units & distribution parks",
+    featuredPlant: "Corrugated carton units, automated packaging & staging parks",
   },
   {
     id: "Wearhousing",
@@ -95,13 +101,14 @@ const sectors: SectorData[] = [
     description:
       "Turnkey logistics architecture focused on maximum volumetric storage, rapid truck docking turnaround, FM Global fire compliance, and modular phase-wise expansion.",
     icon: House,
+    image: "/images/sector-warehousing-hub.jpg",
     stats: { label: "Logistics", value: "Modular ASRS" },
     deliverables: [
-      "General Wearhousing",
-      "Cold Storage",
+      "General Warehousing & Freight Staging",
+      "Temperature-Controlled Cold Storage Hubs",
     ],
     standards: ["FM Global / NFPA", "Superflat Concrete", "Dock Optimization"],
-    featuredPlant: "Cold storage hubs, corrugated carton units & distribution parks",
+    featuredPlant: "Cold storage hubs & automated distribution parks",
   },
 ]
 
@@ -175,6 +182,21 @@ export function SectorsShowcase() {
             <div className="sector-detail-header">
               <div className="sector-detail-meta" />
               <h3 className="sector-detail-title">{activeSector.title}</h3>
+            </div>
+
+            {/* Dynamic Sector AI Image Showcase */}
+            <div className="relative my-4 aspect-[16/9] w-full overflow-hidden rounded-[var(--radius-sm)] border border-[var(--line)] bg-[var(--surface-muted)]">
+              <Image
+                src={activeSector.image}
+                alt={`${activeSector.title} facility showcase`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover transition-all duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(20,18,16,0.7)] via-transparent to-transparent opacity-60" />
+              <span className="absolute bottom-2.5 left-2.5 rounded bg-[var(--terracotta)] px-2.5 py-0.5 text-[11px] font-bold tracking-wider text-white uppercase">
+                {activeSector.featuredPlant}
+              </span>
             </div>
 
             <ul className="deliverables-list">
